@@ -17,7 +17,7 @@ class AuthorsController < ApplicationController
         if @author.save
             redirect_to @author, notice: 'Success!'
         else
-            render "New"
+            render "new"
         end 
     end
     

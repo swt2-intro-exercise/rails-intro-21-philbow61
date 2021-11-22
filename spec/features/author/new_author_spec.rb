@@ -26,9 +26,19 @@ describe "New author page", type: :feature do
 
    end
 
-   it "should fail when trying to create an author with no last name" do 
+   it "should reject an author with no last name" do 
       @author = Author.new(last_name:"")
       expect(@author).to_not be_valid
    end
+
+   it "should show validation errors" do
+      visit new_author_path
+
+      page.fill_in 'author[first_name]', with: "Alan"
+      page.fill_in 'author[homepage]', with: "http://wikipedia.org/Alan_Turing"
+      find('input[type="submit"]').click
+      expect(page).to have_text("error")
+   end
+
 
 end 
