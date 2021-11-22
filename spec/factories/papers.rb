@@ -1,3 +1,10 @@
+#FactoryBot.define do
+  #factory :paper do
+    #title { "MyString" }
+    #venue { "MyString" }
+    #year { 1 }
+  #end
+#end
 FactoryBot.define do
   factory :paper do
 #    title "COMPUTING MACHINERY AND INTELLIGENCE"
