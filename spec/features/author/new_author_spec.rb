@@ -25,4 +25,10 @@ describe "New author page", type: :feature do
       expect(Author.where(first_name: "Alan", last_name: "Turing", homepage: "http://wikipedia.org/Alan_Turing").blank?).to be false
 
    end
+
+   it "should fail when trying to create an author with no last name" do 
+      @author = Author.new(last_name:"")
+      expect(@author).to_not be_valid
+   end
+
 end 
