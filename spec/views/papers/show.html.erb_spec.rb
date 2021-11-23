@@ -15,4 +15,12 @@ RSpec.describe "papers/show", type: :view do
     expect(rendered).to match(/Venue/)
     expect(rendered).to match(/2/)
   end
+
+  it "should list the authors" do
+    alan = FactoryBot.create :author
+    @paper.authors.append(alan)
+    render
+    expect(rendered).to have_text alan.name
+  end
+
 end
